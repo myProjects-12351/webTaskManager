@@ -1,0 +1,78 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
+}
+
+td, th {
+    padding: 10px;
+    border-bottom: 1px solid black;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+}
+
+th {
+    background-color: #0b2545;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    color: #fff;
+}
+
+.btn-add {
+    background-color: #13315c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-add:hover {
+    background-color: #0b2545;
+    color: #fff;
+}
+
+.completed {
+    background-color: #8ac926;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.completed:hover {
+    background-color: #a7c957;
+    color: #fff;
+}
+
+.notCompleted {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cotCompleted:hover {
+    background-color: #c82333;
+    color: #fff;
+}

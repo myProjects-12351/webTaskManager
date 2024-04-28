@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME AFTER REGISTRATION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <h1>WELCOME in our service</h1>
+
+    <h3>Your data:</h3>
+    <ul>
+        <li>Login: <em th:text="${login}">login</em></li>
+        <li>Firstname: <em th:text="${fname}">fname</em></li>
+        <li>Lastname: <em th:text="${lname}">lname</em></li>
+        <li>Email: <em th:text="${email}">email</em></li>
+        <li>Password: <em th:text="${password}">password</em></li>
+    </ul>
+    <form>
+        <button type="submit" formaction="login" formmethod="post">Login</button>
+    </form>
+</div>
+</body>
+</html>

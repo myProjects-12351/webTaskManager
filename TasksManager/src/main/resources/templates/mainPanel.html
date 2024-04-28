@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task List</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: none;
+            line-height: 24px;
+        }
+
+        td, th {
+            padding: 10px;
+            border-bottom: 1px solid black;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+        }
+
+
+        th {
+            background-color: #0b2545;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+            color: #fff;
+        }
+
+        .btn-add {
+            background-color: #13315c;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-add:hover {
+            background-color: #0b2545;
+            color: #fff;
+        }
+
+        .completed {
+            background-color: #8ac926;
+            border: none;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .completed:hover {
+            background-color: #a7c957;
+            color: #fff;
+        }
+
+        .notCompleted {
+            background-color: #dc3545;
+            border: none;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .cotCompleted:hover {
+            background-color: #c82333;
+            color: #fff;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.status-btn').click(function() {
+                var $this = $(this);
+                var currentStatus = $this.data('status');
+                var newStatus = currentStatus ? 'No' : 'Yes';
+                $this.text(newStatus);
+                $this.data('status', !currentStatus);
+                $this.toggleClass('completed');
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+<h1>Task List</h1>
+<form action="/addTaskPanel" method="post">
+    <input type="submit" value="ADD TASK" class="btn-add">
+</form>
+<br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Priority</th>
+        <th>Completed</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Operations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.priority}"></td>
+        <td>
+            <a th:if="${task.completed != null && task.completed != 0}" class="status-btn completed" th:href="@{activateTask/{id}(id=${task.id})}">Yes</a>
+            <a th:if="${task.completed == null || task.completed == 0}" class="status-btn notCompleted" th:href="@{finishTask/{id}(id=${task.id})}">No</a>
+        </td>
+        <td th:text="${task.startDate}"></td>
+        <td th:text="${task.endDate}"></td>
+        <td>
+            <a th:href="@{deleteTask/{id}(id=${task.id})}" class="btn-delete">Delete</a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

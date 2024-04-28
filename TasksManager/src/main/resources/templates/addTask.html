@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:last-child {
+            margin-top: 5px;
+            background-color: #dc3545;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="submit"]:last-child:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" placeholder="Title"><br>
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" placeholder="Description"><br>
+    <label for="Priority">Priority:</label>
+    <input type="text" name="priority" id="Priority" placeholder="Priority"><br>
+    <label for="end_date">End date:</label>
+    <input type="date" name="end_date" id="end_date">
+
+    <input type="submit" value="ADD" formaction="/addTask" formmethod="post"><br>
+    <input type="submit" value="CANCEL" formaction="/mainPanel" formmethod="get">
+</form>
+</body>
+</html>
